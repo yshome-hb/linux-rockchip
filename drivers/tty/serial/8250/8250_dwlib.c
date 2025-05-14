@@ -341,8 +341,8 @@ void dw8250_setup_port(struct uart_port *p)
 #endif
 	}
 
-	if (reg & DW_UART_CPR_AFCE_MODE)
-		up->capabilities |= UART_CAP_AFE;
+	// if (reg & DW_UART_CPR_AFCE_MODE)
+	// 	up->capabilities |= UART_CAP_AFE;
 
 	if (reg & DW_UART_CPR_SIR_MODE)
 		up->capabilities |= UART_CAP_IRDA;

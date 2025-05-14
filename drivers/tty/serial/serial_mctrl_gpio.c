@@ -261,6 +261,7 @@ struct mctrl_gpios *mctrl_gpio_init(struct uart_port *port, unsigned int idx)
 				mctrl_gpios_desc[i].name, idx, ret);
 			return ERR_PTR(ret);
 		}
+		enable_irq(gpios->irq[i]);
 	}
 
 	return gpios;
