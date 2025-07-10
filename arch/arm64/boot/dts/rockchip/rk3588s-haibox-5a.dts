@@ -639,9 +639,17 @@
 /* Spi */
 &spi0 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&spi0m2_cs0 &spi0m2_pins>;
-	num-cs = <1>;
+	pinctrl-0 = <&spi0m2_cs0 &spi0m2_cs1 &spi0m2_pins>;
+	assigned-clocks = <&cru CLK_SPI0>;
+	assigned-clock-rates = <200000000>;
+	num-cs = <2>;
 	status = "okay";
+
+	spi_dev@0 {
+		compatible = "rockchip,spidev";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+	};
 };
 
 &iep {
